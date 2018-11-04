@@ -25,4 +25,12 @@ class DSDelegatePVOneChar: NSObject, UIPickerViewDelegate, UIPickerViewDataSourc
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return alfabet[row]
     }
+    
+    func getLetter(index: Int) -> String{
+        return "a"
+    }
+    
+    func rowForString(letter: String) -> Int {
+        return 1
+    }
 }

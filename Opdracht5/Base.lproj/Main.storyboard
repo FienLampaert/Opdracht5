@@ -54,6 +54,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UUT-IN-CSX">
+                                <rect key="frame" x="192" y="474" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -77,6 +81,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="imgGalgje" destination="UUT-IN-CSX" id="6Cl-lc-cl0"/>
                         <outlet property="imgStart" destination="UXt-pT-KKd" id="bz6-75-QKD"/>
                         <outlet property="lblGalgje" destination="Bgy-Hu-gM7" id="Apx-zf-XTb"/>
                         <outlet property="vpEerste" destination="gG0-pk-b0U" id="D1D-o6-dah"/>
