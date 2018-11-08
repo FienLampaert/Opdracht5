@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ViewController: UIViewController {
+    let galgje = Galgje()
     
     @IBOutlet var lblGalgje: UILabel!
     @IBOutlet weak var vpEerste: UIPickerView!
@@ -18,54 +19,21 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var vpVijfde: UIPickerView!
     @IBOutlet weak var vpZesde: UIPickerView!
     @IBOutlet weak var vpSpel: UIPickerView!
-
     @IBOutlet var imgStart: UIImageView!
-    @IBOutlet var btnSpel: UIButton!
-    
-    var alfabet: [String] = [String]()
-    
-    override func didReceiveMemoryWarning(){
-        super.didReceiveMemoryWarning()
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return alfabet.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return alfabet[row]
+    @IBAction func btnSpeel(_ sender: Any) {
+        if(self.galgje.getWoord() == ""){
+            let alert2 = UIAlertController(title: "Foutieve invoer", message: "Er werd geen correct woord ingevoerd", preferredStyle: .alert)
+            alert2.addAction(UIAlertAction(title: "OK", style: .default, handler:nil))
+            self.present(alert2, animated: true)
+        }
+        else {
+            
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-         alfabet = ["-", "a","b","c", "d", "e", "f", "g", "h", "i", "j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-        
-        vpEerste.delegate = self
-        vpEerste.dataSource = self
-        
-        vpTweede.delegate = self
-        vpTweede.dataSource = self
-        
-        vpDerde.delegate = self
-        vpDerde.dataSource = self
-        
-        vpVierde.delegate = self
-        vpVierde.dataSource = self
-        
-        vpVijfde.delegate = self
-        vpVijfde.dataSource = self
-        
-        vpZesde.delegate = self
-        vpZesde.dataSource = self
-        
-        vpSpel.delegate = self
-        vpSpel.dataSource = self
         
         let klikG = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer: )))
         imgStart.isUserInteractionEnabled = true
@@ -75,7 +43,39 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         
         let tapedImage = tapGestureRecognizer.view as! UIImageView
-        lblGalgje.backgroundColor = UIColor.red
+        //lblGalgje.backgroundColor = UIColor.red
+        
+        let alert = UIAlertController(title: "GALGJE", message: "Geef woord van 6 letter...", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Annuleer", style: .default, handler:nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {
+            action in
+            let woord = alert.textFields?.first?.text
+            
+            if woord?.trimmingCharacters(in: .whitespaces) != ""{
+                
+                
+                if(self.galgje.startSpel(woord: woord!) == false){
+                    let alert2 = UIAlertController(title: "Foutieve invoer", message: "Het ingevoerde woord bevat geen zes letters", preferredStyle: .alert)
+                    alert2.addAction(UIAlertAction(title: "OK", style: .default, handler:nil))
+                    self.present(alert2, animated: true)
+                }
+                
+            }
+            else {
+                let alert3 = UIAlertController(title: "Foutieve invoer", message: "Er werd geen woord ingevoerd", preferredStyle: .alert)
+                alert3.addAction(UIAlertAction(title: "OK", style: .default, handler:nil))
+                self.present(alert3, animated: true)
+            }
+            
+            
+        }))
+        
+        alert.addTextField(configurationHandler: {
+            textField in
+            textField.placeholder = "Geef een woord in."
+        })
+        
+        self.present(alert, animated: true)
     }
 
 }

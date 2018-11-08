@@ -23,88 +23,69 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gG0-pk-b0U">
-                                <rect key="frame" x="15" y="250" width="210" height="216"/>
-                            </pickerView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AfA-hj-Z3x">
-                                <rect key="frame" x="240" y="250" width="210.5" height="216"/>
-                            </pickerView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AvB-bU-9v2">
-                                <rect key="frame" x="465.5" y="250" width="210" height="216"/>
-                            </pickerView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3n-OB-BuM">
-                                <rect key="frame" x="915.5" y="248" width="210.5" height="216"/>
-                            </pickerView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1q-zf-vAx">
-                                <rect key="frame" x="690.5" y="250" width="210" height="216"/>
-                            </pickerView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Chg-SH-Dro">
-                                <rect key="frame" x="1141" y="250" width="210" height="216"/>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gG0-pk-b0U">
+                                <rect key="frame" x="15" y="250" width="320" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="CS7-P1-XLC" id="Qny-nk-TLP"/>
+                                    <outlet property="delegate" destination="CS7-P1-XLC" id="e3V-Q3-RWx"/>
+                                </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PbU-hQ-HLP">
                                 <rect key="frame" x="1083" y="886.5" width="62" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Speel"/>
+                                <connections>
+                                    <action selector="btnSpeel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IpI-xp-cKE"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start.png" translatesAutoresizingMaskIntoConstraints="NO" id="UXt-pT-KKd">
                                 <rect key="frame" x="267" y="845" width="180" height="125"/>
                             </imageView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJe-mp-2zr">
                                 <rect key="frame" x="663" y="799.5" width="320" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="dNw-fw-05e" id="q9c-j5-6BQ"/>
+                                    <outlet property="delegate" destination="dNw-fw-05e" id="Jqb-Yv-rbv"/>
+                                </connections>
                             </pickerView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="_ _ _ _ _ _" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RI3-iT-XsC">
+                                <rect key="frame" x="703" y="472" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="gG0-pk-b0U" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="230" id="0wv-hJ-4zp"/>
-                            <constraint firstItem="e1q-zf-vAx" firstAttribute="leading" secondItem="AvB-bU-9v2" secondAttribute="trailing" constant="15" id="1Px-jV-hQ3"/>
                             <constraint firstItem="Bgy-Hu-gM7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1TD-kq-Keu"/>
-                            <constraint firstItem="AvB-bU-9v2" firstAttribute="leading" secondItem="AfA-hj-Z3x" secondAttribute="trailing" constant="15" id="3y2-5o-5Ao"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Chg-SH-Dro" secondAttribute="trailing" constant="15" id="47I-47-7zI"/>
-                            <constraint firstItem="gG0-pk-b0U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="4J6-Dc-r1P"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RI3-iT-XsC" secondAttribute="trailing" constant="423" id="3p0-AB-jgQ"/>
                             <constraint firstItem="fJe-mp-2zr" firstAttribute="centerY" secondItem="UXt-pT-KKd" secondAttribute="centerY" id="4at-Px-SkW"/>
-                            <constraint firstItem="P3n-OB-BuM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="228" id="56X-Ze-FyM"/>
                             <constraint firstItem="PbU-hQ-HLP" firstAttribute="leading" secondItem="fJe-mp-2zr" secondAttribute="trailing" constant="100" id="5JK-9a-k7P"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UXt-pT-KKd" secondAttribute="bottom" constant="54" id="5Yc-1u-G9N"/>
                             <constraint firstItem="PbU-hQ-HLP" firstAttribute="centerY" secondItem="UXt-pT-KKd" secondAttribute="centerY" id="7fz-6z-8qa"/>
-                            <constraint firstItem="P3n-OB-BuM" firstAttribute="width" secondItem="gG0-pk-b0U" secondAttribute="width" id="7tp-yc-CLV"/>
+                            <constraint firstItem="gG0-pk-b0U" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="A9r-26-HHV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PbU-hQ-HLP" secondAttribute="trailing" constant="221" id="AEK-v7-kVF"/>
-                            <constraint firstItem="Chg-SH-Dro" firstAttribute="width" secondItem="gG0-pk-b0U" secondAttribute="width" id="BHn-Xq-WRD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fJe-mp-2zr" secondAttribute="bottom" constant="8.5" id="DFN-hB-h5B"/>
                             <constraint firstItem="Bgy-Hu-gM7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="E8s-3r-riU"/>
-                            <constraint firstItem="AvB-bU-9v2" firstAttribute="height" secondItem="gG0-pk-b0U" secondAttribute="height" id="Irs-1d-Lyd"/>
-                            <constraint firstItem="AfA-hj-Z3x" firstAttribute="width" secondItem="gG0-pk-b0U" secondAttribute="width" id="NAg-S1-BU6"/>
-                            <constraint firstItem="Chg-SH-Dro" firstAttribute="leading" secondItem="P3n-OB-BuM" secondAttribute="trailing" constant="15" id="Qd7-XP-d8e"/>
-                            <constraint firstItem="e1q-zf-vAx" firstAttribute="height" secondItem="gG0-pk-b0U" secondAttribute="height" id="TFG-Tb-ted"/>
-                            <constraint firstItem="P3n-OB-BuM" firstAttribute="height" secondItem="gG0-pk-b0U" secondAttribute="height" id="ZmD-uv-FDG"/>
-                            <constraint firstItem="AfA-hj-Z3x" firstAttribute="leading" secondItem="gG0-pk-b0U" secondAttribute="trailing" constant="15" id="blc-uq-1Jv"/>
-                            <constraint firstItem="e1q-zf-vAx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="230" id="d4U-Ar-Xm2"/>
-                            <constraint firstItem="Chg-SH-Dro" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="230" id="iuD-le-nxz"/>
+                            <constraint firstItem="RI3-iT-XsC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="703" id="GWJ-f2-uKD"/>
+                            <constraint firstItem="gG0-pk-b0U" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="JaM-To-Ucz"/>
                             <constraint firstItem="fJe-mp-2zr" firstAttribute="leading" secondItem="UXt-pT-KKd" secondAttribute="trailing" constant="216" id="l1H-Kc-3Iw"/>
-                            <constraint firstItem="AvB-bU-9v2" firstAttribute="width" secondItem="gG0-pk-b0U" secondAttribute="width" id="mCf-z3-lGd"/>
-                            <constraint firstItem="AfA-hj-Z3x" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="230" id="qJW-0m-cFV"/>
-                            <constraint firstItem="e1q-zf-vAx" firstAttribute="width" secondItem="gG0-pk-b0U" secondAttribute="width" id="qhL-dU-2M5"/>
-                            <constraint firstItem="AvB-bU-9v2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="230" id="vgG-c6-BxS"/>
-                            <constraint firstItem="Chg-SH-Dro" firstAttribute="height" secondItem="gG0-pk-b0U" secondAttribute="height" id="wLO-1W-S3K"/>
-                            <constraint firstItem="P3n-OB-BuM" firstAttribute="leading" secondItem="e1q-zf-vAx" secondAttribute="trailing" constant="15" id="xzc-fE-Sfr"/>
+                            <constraint firstItem="gG0-pk-b0U" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="230" id="tKy-CS-BaS"/>
+                            <constraint firstItem="fJe-mp-2zr" firstAttribute="top" secondItem="RI3-iT-XsC" secondAttribute="bottom" constant="199.5" id="x4W-Oe-CgK"/>
                             <constraint firstItem="UXt-pT-KKd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="267" id="z0g-0x-ReJ"/>
-                            <constraint firstItem="AfA-hj-Z3x" firstAttribute="height" secondItem="gG0-pk-b0U" secondAttribute="height" id="zW6-aH-RQs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="btnSpel" destination="PbU-hQ-HLP" id="9kZ-uI-hVe"/>
                         <outlet property="imgStart" destination="UXt-pT-KKd" id="bz6-75-QKD"/>
                         <outlet property="lblGalgje" destination="Bgy-Hu-gM7" id="Apx-zf-XTb"/>
-                        <outlet property="vpDerde" destination="AvB-bU-9v2" id="t6O-Zq-YGH"/>
                         <outlet property="vpEerste" destination="gG0-pk-b0U" id="D1D-o6-dah"/>
                         <outlet property="vpSpel" destination="fJe-mp-2zr" id="BWf-Xo-QY3"/>
-                        <outlet property="vpTweede" destination="AfA-hj-Z3x" id="2ED-3d-nQM"/>
-                        <outlet property="vpVierde" destination="e1q-zf-vAx" id="H67-oJ-fR2"/>
-                        <outlet property="vpVijfde" destination="P3n-OB-BuM" id="gfU-hu-EbV"/>
-                        <outlet property="vpZesde" destination="Chg-SH-Dro" id="CUP-n6-SP3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="CS7-P1-XLC" customClass="DSDelegatePV" customModule="Opdracht5" customModuleProvider="target"/>
+                <customObject id="dNw-fw-05e" customClass="DSDelegatePVOneChar" customModule="Opdracht5" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="133.96778916544656" y="133.59375"/>
         </scene>

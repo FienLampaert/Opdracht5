@@ -20,6 +20,9 @@
 		3FC4F76A2192E86A0014E10C /* galgje8.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FC4F75D2192E8690014E10C /* galgje8.png */; };
 		3FC4F76B2192E86A0014E10C /* galgje9.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FC4F75E2192E8690014E10C /* galgje9.png */; };
 		3FC4F76C2192E86A0014E10C /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FC4F75F2192E8690014E10C /* start.png */; };
+		3FFE3A7D2194262800CEA74A /* DSDelegatePV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE3A7C2194262800CEA74A /* DSDelegatePV.swift */; };
+		3FFE3A7F21942FB100CEA74A /* DSDelegatePVOneChar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE3A7E21942FB100CEA74A /* DSDelegatePVOneChar.swift */; };
+		3FFE3A812194329100CEA74A /* Galgje.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE3A802194329100CEA74A /* Galgje.swift */; };
 		E8F79A49218F4C18006BE93B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F79A48218F4C18006BE93B /* AppDelegate.swift */; };
 		E8F79A4B218F4C18006BE93B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F79A4A218F4C18006BE93B /* ViewController.swift */; };
 		E8F79A4E218F4C18006BE93B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8F79A4C218F4C18006BE93B /* Main.storyboard */; };
@@ -60,6 +63,9 @@
 		3FC4F75D2192E8690014E10C /* galgje8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = galgje8.png; sourceTree = "<group>"; };
 		3FC4F75E2192E8690014E10C /* galgje9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = galgje9.png; sourceTree = "<group>"; };
 		3FC4F75F2192E8690014E10C /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
+		3FFE3A7C2194262800CEA74A /* DSDelegatePV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSDelegatePV.swift; sourceTree = "<group>"; };
+		3FFE3A7E21942FB100CEA74A /* DSDelegatePVOneChar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSDelegatePVOneChar.swift; sourceTree = "<group>"; };
+		3FFE3A802194329100CEA74A /* Galgje.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Galgje.swift; sourceTree = "<group>"; };
 		E8F79A45218F4C18006BE93B /* Opdracht5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Opdracht5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8F79A48218F4C18006BE93B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8F79A4A218F4C18006BE93B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +156,9 @@
 				E8F79A4F218F4C32006BE93B /* Assets.xcassets */,
 				E8F79A51218F4C32006BE93B /* LaunchScreen.storyboard */,
 				E8F79A54218F4C32006BE93B /* Info.plist */,
+				3FFE3A7C2194262800CEA74A /* DSDelegatePV.swift */,
+				3FFE3A7E21942FB100CEA74A /* DSDelegatePVOneChar.swift */,
+				3FFE3A802194329100CEA74A /* Galgje.swift */,
 			);
 			path = Opdracht5;
 			sourceTree = "<group>";
@@ -316,8 +325,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FFE3A7F21942FB100CEA74A /* DSDelegatePVOneChar.swift in Sources */,
+				3FFE3A812194329100CEA74A /* Galgje.swift in Sources */,
 				E8F79A4B218F4C18006BE93B /* ViewController.swift in Sources */,
 				E8F79A49218F4C18006BE93B /* AppDelegate.swift in Sources */,
+				3FFE3A7D2194262800CEA74A /* DSDelegatePV.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
