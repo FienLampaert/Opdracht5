@@ -10,9 +10,11 @@ import Foundation
 
 class Galgje {
     var woord: String
+    var mawWrongAttemps: Int
     
     init()  {
         self.woord = ""
+        self.mawWrongAttemps = 0
     }
     
     func getWoord() -> String{
@@ -46,5 +48,14 @@ class Galgje {
         }
         
         return correct
+    }
+    
+    func getMawWrongAttemps() -> Int{
+        return 0
+    }
+    
+    func speel(letter:String) -> (correct: Bool, numberOfWrongAttempts:
+        Int, woordArray: [String], image:String){
+            
     }
 }
