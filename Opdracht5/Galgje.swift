@@ -17,7 +17,7 @@ class Galgje {
     init()  {
         self.woord = ""
         self.mawWrongAttemps = 0
-        self.woordArray = ["------"]
+        self.woordArray = ["-","-","-","-","-","-"]
         self.image = -1
     }
     
@@ -58,20 +58,61 @@ class Galgje {
         return mawWrongAttemps
     }
     
+    /*extension String {
+        func indices (of occurrence: String) -> [Int] {
+            var indices = [Int]()
+            var position = startIndex
+            while let range = range(of: occurrence, range: position..<endIndex) {
+                let i = distance(from: startIndex, to: range.lowerBound)
+                indices.append(i)
+                let offset = occurence.distance(from: occurrence.startIndex, to: occurrence.endIndex)-1
+                guard let after = index(range.lowerBound, offsetBy: offset, limitedBy: endIndex) else {
+                break
+                    
+            }
+                position = index(after: after)
+            }
+            return indices
+        }
+    }*/
+    
     func speel(letter:String) -> (correct: Bool, numberOfWrongAttempts:
         Int, woordArray: [String], image:String){
             var correct = false
             
             if woord.contains(letter) {
                 correct = true
-                let index = woord.index(woord.startIndex, offsetBy: woord.count-1)
-                var w = woordArray.last
-                var indexen: [Int]
-                indexen.append(index)
-                let tekst = woord.substring(to: index)
-                while tekst.contains(letter) == true {
-                    
+                
+                var range: Range<String.Index> = woord.range(of: letter)!
+                var index: Int = woord.distance(from: woord.startIndex, to: range.lowerBound)
+                //var index = Int (woord.firstIndex(of: Character (letter)))
+                //var distance = woord.distance(from: index!, to: Int(index)+1))
+                
+                var w = woordArray
+                w[index] = letter
+                var indexen = [index]
+                
+                //var range = woord.index(after: index!)..<woord.endIndex
+                
+                while (woord[range].contains(letter)){
+                    range = woord.range(of: letter)!
+                    //index = woord.distance(from: (index as String.Index), to: range.lowerBound)
+                    //index = woord[range].firstIndex(of: Character (letter))
+                    indexen.append(index)
+                    //range = woord.index(after: index!)..<woord.endIndex
                 }
+                
+                woordArray = w
+                
+                /*for i in w!.characters {
+                    for j in indexen {
+                        if(i == indexen[j as Int]!) {
+                            
+                        }
+                    }
+                }*/
+              
+                
             }
             else {
                 self.mawWrongAttemps = self.mawWrongAttemps + 1

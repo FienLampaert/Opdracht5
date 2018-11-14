@@ -93,6 +93,7 @@
                         <outlet property="imgGalgje" destination="UUT-IN-CSX" id="6Cl-lc-cl0"/>
                         <outlet property="imgStart" destination="UXt-pT-KKd" id="bz6-75-QKD"/>
                         <outlet property="lblGalgje" destination="Bgy-Hu-gM7" id="Apx-zf-XTb"/>
+                        <outlet property="tvWoorden" destination="RI3-iT-XsC" id="AeP-4d-V0G"/>
                         <outlet property="vpEerste" destination="gG0-pk-b0U" id="D1D-o6-dah"/>
                         <outlet property="vpSpel" destination="fJe-mp-2zr" id="BWf-Xo-QY3"/>
                     </connections>

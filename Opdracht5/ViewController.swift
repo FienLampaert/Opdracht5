@@ -15,14 +15,10 @@ class ViewController: UIViewController {
     
     @IBOutlet var lblGalgje: UILabel!
     @IBOutlet weak var vpEerste: UIPickerView!
-    @IBOutlet weak var vpTweede: UIPickerView!
-    @IBOutlet weak var vpDerde: UIPickerView!
-    @IBOutlet weak var vpVierde: UIPickerView!
-    @IBOutlet weak var vpVijfde: UIPickerView!
-    @IBOutlet weak var vpZesde: UIPickerView!
     @IBOutlet weak var vpSpel: UIPickerView!
     @IBOutlet var imgStart: UIImageView!
     @IBOutlet weak var imgGalgje: UIImageView!
+    @IBOutlet var tvWoorden: UITextView!
     
     @IBAction func btnSpeel(_ sender: Any) {
         
@@ -40,9 +36,18 @@ class ViewController: UIViewController {
             let correct = spel.correct
             let imgName = spel.image
             let wrong = spel.numberOfWrongAttempts
+            //let arrayW = spel.woordArray
+            let arrayW = ["1","2","1","2","1","2"]
             
             if (correct == true) {
-                lblGalgje.text = letter
+                for i in 0...5 {
+                    tvWoorden.text += arrayW[i]
+                    tvWoorden.backgroundColor = UIColor.red
+                    lblGalgje.backgroundColor = UIColor.red
+                    //self.lblGalgje.text += arrayW[i]
+                }
+                tvWoorden.text += "\n"
+                
             }
             else {
                 if (wrong < 12) {
