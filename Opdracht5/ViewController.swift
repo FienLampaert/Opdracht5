@@ -9,7 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let galgje = Galgje()
+
+    var galgje: Galgje = Galgje()
+    
     
     @IBOutlet var lblGalgje: UILabel!
     @IBOutlet weak var vpEerste: UIPickerView!
@@ -20,19 +22,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var vpZesde: UIPickerView!
     @IBOutlet weak var vpSpel: UIPickerView!
     @IBOutlet var imgStart: UIImageView!
-    @IBOutlet var imgGalgje: UIImageView!
+    @IBOutlet weak var imgGalgje: UIImageView!
     
     @IBAction func btnSpeel(_ sender: Any) {
-        
-        let spel = galgje.speel(letter: "a")
-        let imgName = spel.image
-        let image = UIImage(named: imgName)
-        let imageView = UIImageView(image: image)
-        
-        if (spel.numberOfWrongAttempts > 0) {
-            imgStart.addSubview(imageView)
-        }
-        
         
         if(self.galgje.getWoord() == ""){
             let alert2 = UIAlertController(title: "Foutieve invoer", message: "Er werd geen correct woord ingevoerd", preferredStyle: .alert)
@@ -40,15 +32,31 @@ class ViewController: UIViewController {
             self.present(alert2, animated: true)
         }
         else {
-            let spel = galgje.speel(letter: "a")
+            let letterIndex = vpSpel.selectedRow(inComponent: 0)
+            let ds = vpSpel.dataSource as! DSDelegatePVOneChar
+            let letter = ds.getLetter(index: letterIndex)
+            
+            let spel = galgje.speel(letter: letter)
+            let correct = spel.correct
             let imgName = spel.image
-            let image = UIImage(named: imgName)
-            let imageView = UIImageView(image: image)
+            let wrong = spel.numberOfWrongAttempts
             
-            if (spel.numberOfWrongAttempts > 0) {
-                imgStart.addSubview(imageView)
+            if (correct == true) {
+                lblGalgje.text = letter
             }
-            
+            else {
+                if (wrong < 12) {
+                    if (!(imgName == "")) {
+                        let yourImg: UIImage = UIImage(named: imgName)!
+                        let imgGalgje = UIImageView(image: yourImg)
+                        
+                        
+                        if (spel.numberOfWrongAttempts > 0) {
+                            self.view.addSubview(imgGalgje)
+                        }
+                    }
+                }
+            }
         }
     }
     
@@ -74,6 +82,7 @@ class ViewController: UIViewController {
             
             if woord?.trimmingCharacters(in: .whitespaces) != ""{
                 
+                self.galgje = Galgje()
                 
                 if(self.galgje.startSpel(woord: woord!) == false){
                     let alert2 = UIAlertController(title: "Foutieve invoer", message: "Het ingevoerde woord bevat geen zes letters", preferredStyle: .alert)

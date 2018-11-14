@@ -17,7 +17,7 @@ class Galgje {
     init()  {
         self.woord = ""
         self.mawWrongAttemps = 0
-        self.woordArray = []
+        self.woordArray = ["------"]
         self.image = -1
     }
     
@@ -29,10 +29,11 @@ class Galgje {
         var correct = false
         
         if (woord.count == 6){
+            correct = true
             
             for c in woord {
                 if(!(c >= "a" && c <= "z")){
-                    correct = true
+                    correct = false
                 }
             }
             
@@ -54,7 +55,7 @@ class Galgje {
     }
     
     func getMawWrongAttemps() -> Int{
-        return 0
+        return mawWrongAttemps
     }
     
     func speel(letter:String) -> (correct: Bool, numberOfWrongAttempts:
@@ -63,19 +64,24 @@ class Galgje {
             
             if woord.contains(letter) {
                 correct = true
+                let index = woord.index(woord.startIndex, offsetBy: woord.count-1)
+                var w = woordArray.last
+                var indexen: [Int]
+                indexen.append(index)
+                let tekst = woord.substring(to: index)
+                while tekst.contains(letter) == true {
+                    
+                }
             }
             else {
                 self.mawWrongAttemps = self.mawWrongAttemps + 1
                 self.image = self.image + 1
             }
             
-            var img = "galgje"
+            var img = ""
             
-            if (self.image == 0) {
-                img = ".png"
-            }
-            else {
-                img = String(self.image) + ".png"
+            if (self.image > 0) {
+                img = "galgje" + String(self.image) + ".png"
             }
             
             

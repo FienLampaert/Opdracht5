@@ -27,7 +27,9 @@ class DSDelegatePVOneChar: NSObject, UIPickerViewDelegate, UIPickerViewDataSourc
     }
     
     func getLetter(index: Int) -> String{
-        return "a"
+        let letter = alfabet[index]
+        
+        return letter
     }
     
     func rowForString(letter: String) -> Int {
