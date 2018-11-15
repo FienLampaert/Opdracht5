@@ -25,4 +25,18 @@ class DSDelegatePV: NSObject, UIPickerViewDelegate, UIPickerViewDataSource  {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return alfabet[row]
     }
+    
+    func rowForString(letter: String) -> Int {
+        var index: Int = 0
+        var i: Int = 0
+        
+        for l in alfabet {
+            if( letter == l ){
+                i = index
+            }
+            index += 1
+        }
+        
+        return i
+    }
 }

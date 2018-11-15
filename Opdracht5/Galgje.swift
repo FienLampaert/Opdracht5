@@ -84,34 +84,19 @@ class Galgje {
                 correct = true
                 
                 var range: Range<String.Index> = woord.range(of: letter)!
-                var index: Int = woord.distance(from: woord.startIndex, to: range.lowerBound)
-                //var index = Int (woord.firstIndex(of: Character (letter)))
-                //var distance = woord.distance(from: index!, to: Int(index)+1))
-                
+               
                 var w = woordArray
-                w[index] = letter
-                var indexen = [index]
+                var index = 0
                 
-                //var range = woord.index(after: index!)..<woord.endIndex
-                
-                while (woord[range].contains(letter)){
-                    range = woord.range(of: letter)!
-                    //index = woord.distance(from: (index as String.Index), to: range.lowerBound)
-                    //index = woord[range].firstIndex(of: Character (letter))
-                    indexen.append(index)
-                    //range = woord.index(after: index!)..<woord.endIndex
+                for char in woord.characters{
+                    if(char == Character (letter)) {
+                        w[index] = letter
+                    }
+                    
+                    index += 1
                 }
                 
                 woordArray = w
-                
-                /*for i in w!.characters {
-                    for j in indexen {
-                        if(i == indexen[j as Int]!) {
-                            
-                        }
-                    }
-                }*/
-              
                 
             }
             else {

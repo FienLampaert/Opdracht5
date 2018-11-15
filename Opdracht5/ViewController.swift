@@ -22,7 +22,9 @@ class ViewController: UIViewController {
     
     @IBAction func btnSpeel(_ sender: Any) {
         
-        if(self.galgje.getWoord() == ""){
+        let woord = galgje.getWoord()
+        
+        if(woord == ""){
             let alert2 = UIAlertController(title: "Foutieve invoer", message: "Er werd geen correct woord ingevoerd", preferredStyle: .alert)
             alert2.addAction(UIAlertAction(title: "OK", style: .default, handler:nil))
             self.present(alert2, animated: true)
@@ -31,35 +33,66 @@ class ViewController: UIViewController {
             let letterIndex = vpSpel.selectedRow(inComponent: 0)
             let ds = vpSpel.dataSource as! DSDelegatePVOneChar
             let letter = ds.getLetter(index: letterIndex)
-            
             let spel = galgje.speel(letter: letter)
             let correct = spel.correct
-            let imgName = spel.image
-            let wrong = spel.numberOfWrongAttempts
-            //let arrayW = spel.woordArray
-            let arrayW = ["1","2","1","2","1","2"]
+            var imgName = ""
             
+            if( !(spel.image == "")){
+                imgName = spel.image
+            }
+            
+            let wrong = spel.numberOfWrongAttempts
+            let arrayW = spel.woordArray
+            
+            tvWoorden.text += "\n"
+            
+            var i = 0
+            var gevonden = true
+           
             if (correct == true) {
-                for i in 0...5 {
-                    tvWoorden.text += arrayW[i]
-                    tvWoorden.backgroundColor = UIColor.red
-                    lblGalgje.backgroundColor = UIColor.red
-                    //self.lblGalgje.text += arrayW[i]
+                
+                    for char in woord.characters{
+                        
+                        tvWoorden.text += arrayW[i]
+                        
+                        if(char == Character (letter)) {
+                            let dss = vpEerste.dataSource as! DSDelegatePV
+                            let row = dss.rowForString(letter: letter)
+                            vpEerste.selectRow(row, inComponent: i, animated: true)
+                            
+                        }
+                        i += 1
+                    }
+                
+                for i in arrayW {
+                    if (i == "-") {
+                        gevonden = false
+                    }
                 }
-                tvWoorden.text += "\n"
+                
+                if (gevonden == true) {
+                    let alert2 = UIAlertController(title: "Gewonnen", message: "Je hebt het woord gevonden", preferredStyle: .alert)
+                    alert2.addAction(UIAlertAction(title: "OK", style: .default, handler:nil))
+                    self.present(alert2, animated: true)
+                }
                 
             }
             else {
                 if (wrong < 12) {
                     if (!(imgName == "")) {
                         let yourImg: UIImage = UIImage(named: imgName)!
-                        let imgGalgje = UIImageView(image: yourImg)
+                        let imgG = UIImageView(image: yourImg)
                         
                         
-                        if (spel.numberOfWrongAttempts > 0) {
-                            self.view.addSubview(imgGalgje)
+                        if (wrong > 0) {
+                            self.imgGalgje.addSubview(imgG)
                         }
                     }
+                }
+                else {
+                    let alert2 = UIAlertController(title: "Verloren", message: "Jammer, je hebt het woord niet gevonden. Het woord was " + woord + ".", preferredStyle: .alert)
+                    alert2.addAction(UIAlertAction(title: "OK", style: .default, handler:nil))
+                    self.present(alert2, animated: true)
                 }
             }
         }
@@ -94,6 +127,27 @@ class ViewController: UIViewController {
                     alert2.addAction(UIAlertAction(title: "OK", style: .default, handler:nil))
                     self.present(alert2, animated: true)
                 }
+                
+                //let dss = self.vpEerste.dataSource as! DSDelegatePV
+                
+                for i in 0...5 {
+                    self.vpEerste.selectRow(0, inComponent: i, animated: true)
+                }
+                
+                self.vpSpel.selectRow(0, inComponent: 0, animated: true)
+                
+                self.tvWoorden.text = "- - - - - -"
+                
+                //let yourImg: UIImage = UIImage(named: "")!
+                //self.imgGalgje = UIImageView(image: "")
+                //self.view.addSubview(self.imgGalgje)
+                //self.imgGalgje.image = nil
+                self.imgGalgje.isHidden = true
+                
+                //let yourImg: UIImage = UIImage(named: imgName)!
+                //let imgG = UIImageView(image: nil)
+                //self.imgGalgje.addSubview(imgG)
+                
                 
             }
             else {

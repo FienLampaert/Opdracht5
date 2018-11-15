@@ -32,7 +32,5 @@ class DSDelegatePVOneChar: NSObject, UIPickerViewDelegate, UIPickerViewDataSourc
         return letter
     }
     
-    func rowForString(letter: String) -> Int {
-        return 1
-    }
+    
 }
