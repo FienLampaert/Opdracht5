@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         }
         else {
             let letterIndex = vpSpel.selectedRow(inComponent: 0)
-            let ds = vpSpel.dataSource as! DSDelegatePVOneChar
+            let ds = vpSpel.dataSource as! DSDelegatePV
             let letter = ds.getLetter(index: letterIndex)
             let spel = galgje.speel(letter: letter)
             let correct = spel.correct
@@ -56,8 +56,8 @@ class ViewController: UIViewController {
                         tvWoorden.text += arrayW[i]
                         
                         if(char == Character (letter)) {
-                            let dss = vpEerste.dataSource as! DSDelegatePV
-                            let row = dss.rowForString(letter: letter)
+                            //let dss = vpEerste.dataSource as! DSDelegatePV
+                            let row = ds.rowForString(letter: letter)
                             vpEerste.selectRow(row, inComponent: i, animated: true)
                             
                         }
@@ -71,13 +71,29 @@ class ViewController: UIViewController {
                 }
                 
                 if (gevonden == true) {
-                    let alert2 = UIAlertController(title: "Gewonnen", message: "Je hebt het woord gevonden", preferredStyle: .alert)
-                    alert2.addAction(UIAlertAction(title: "OK", style: .default, handler:nil))
-                    self.present(alert2, animated: true)
+                    let alert2 = UIAlertController(title: "Gewonnen", message: "Je hebt het woord gevonden. Geef je naam op.", preferredStyle: .alert)
+                    alert2.addAction(UIAlertAction(title: "OK", style: .default, handler: {
+                        action in
+                        let naam = alert2.textFields?.first?.text
+                        let score = 0
+                        
+                        if(naam?.trimmingCharacters(in: .whitespaces) != "") {
+                            UserDefaults.standard.set(score, forKey: naam! )
+                        }
+                        else {
+                            let alert3 = UIAlertController(title: "Geen naam", message: "Jammer, je gaf geen naam op. Je zal niet in de topscore opgenomen worden", preferredStyle: .alert)
+                            alert2.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+   
+                    self.present(alert3, animated: true)
+                    
+                        }
+                        
+                    }))
                 }
                 
             }
             else {
+                imgGalgje.isHidden = false
                 if (wrong < 12) {
                     if (!(imgName == "")) {
                         let yourImg: UIImage = UIImage(named: imgName)!
@@ -105,6 +121,9 @@ class ViewController: UIViewController {
         let klikG = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer: )))
         imgStart.isUserInteractionEnabled = true
         imgStart.addGestureRecognizer(klikG)
+        
+        self.vpEerste.tag = 6
+        self.vpSpel.tag = 1
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
@@ -112,7 +131,7 @@ class ViewController: UIViewController {
         let tapedImage = tapGestureRecognizer.view as! UIImageView
         //lblGalgje.backgroundColor = UIColor.red
         
-        let alert = UIAlertController(title: "GALGJE", message: "Geef woord van 6 letter...", preferredStyle: .alert)
+        let alert = UIAlertController(title: "GALGJE", message: "Geef een woord van 6 letter...", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Annuleer", style: .default, handler:nil))
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {
             action in

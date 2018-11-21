@@ -15,7 +15,7 @@ class DSDelegatePV: NSObject, UIPickerViewDelegate, UIPickerViewDataSource  {
     var allePV: [String] = [String]()
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 6
+        return pickerView.tag
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -24,6 +24,12 @@ class DSDelegatePV: NSObject, UIPickerViewDelegate, UIPickerViewDataSource  {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return alfabet[row]
+    }
+    
+    func getLetter(index: Int) -> String{
+        let letter = alfabet[index]
+        
+        return letter
     }
     
     func rowForString(letter: String) -> Int {

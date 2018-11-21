@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F15979021A558D40043AF62 /* TopscoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15978F21A558D40043AF62 /* TopscoreTableViewController.swift */; };
 		3FC4F7602192E86A0014E10C /* galgje.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3FC4F7532192E8690014E10C /* galgje.jpg */; };
 		3FC4F7612192E86A0014E10C /* galgje1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FC4F7542192E8690014E10C /* galgje1.png */; };
 		3FC4F7622192E86A0014E10C /* galgje10.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FC4F7552192E8690014E10C /* galgje10.png */; };
@@ -21,7 +22,6 @@
 		3FC4F76B2192E86A0014E10C /* galgje9.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FC4F75E2192E8690014E10C /* galgje9.png */; };
 		3FC4F76C2192E86A0014E10C /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FC4F75F2192E8690014E10C /* start.png */; };
 		3FFE3A7D2194262800CEA74A /* DSDelegatePV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE3A7C2194262800CEA74A /* DSDelegatePV.swift */; };
-		3FFE3A7F21942FB100CEA74A /* DSDelegatePVOneChar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE3A7E21942FB100CEA74A /* DSDelegatePVOneChar.swift */; };
 		3FFE3A812194329100CEA74A /* Galgje.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE3A802194329100CEA74A /* Galgje.swift */; };
 		E8F79A49218F4C18006BE93B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F79A48218F4C18006BE93B /* AppDelegate.swift */; };
 		E8F79A4B218F4C18006BE93B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F79A4A218F4C18006BE93B /* ViewController.swift */; };
@@ -50,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F15978F21A558D40043AF62 /* TopscoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopscoreTableViewController.swift; sourceTree = "<group>"; };
 		3FC4F7532192E8690014E10C /* galgje.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = galgje.jpg; sourceTree = "<group>"; };
 		3FC4F7542192E8690014E10C /* galgje1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = galgje1.png; sourceTree = "<group>"; };
 		3FC4F7552192E8690014E10C /* galgje10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = galgje10.png; sourceTree = "<group>"; };
@@ -64,7 +65,6 @@
 		3FC4F75E2192E8690014E10C /* galgje9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = galgje9.png; sourceTree = "<group>"; };
 		3FC4F75F2192E8690014E10C /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
 		3FFE3A7C2194262800CEA74A /* DSDelegatePV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSDelegatePV.swift; sourceTree = "<group>"; };
-		3FFE3A7E21942FB100CEA74A /* DSDelegatePVOneChar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSDelegatePVOneChar.swift; sourceTree = "<group>"; };
 		3FFE3A802194329100CEA74A /* Galgje.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Galgje.swift; sourceTree = "<group>"; };
 		E8F79A45218F4C18006BE93B /* Opdracht5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Opdracht5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8F79A48218F4C18006BE93B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -153,11 +153,11 @@
 				E8F79A48218F4C18006BE93B /* AppDelegate.swift */,
 				E8F79A4A218F4C18006BE93B /* ViewController.swift */,
 				E8F79A4C218F4C18006BE93B /* Main.storyboard */,
+				3F15978F21A558D40043AF62 /* TopscoreTableViewController.swift */,
 				E8F79A4F218F4C32006BE93B /* Assets.xcassets */,
 				E8F79A51218F4C32006BE93B /* LaunchScreen.storyboard */,
 				E8F79A54218F4C32006BE93B /* Info.plist */,
 				3FFE3A7C2194262800CEA74A /* DSDelegatePV.swift */,
-				3FFE3A7E21942FB100CEA74A /* DSDelegatePVOneChar.swift */,
 				3FFE3A802194329100CEA74A /* Galgje.swift */,
 			);
 			path = Opdracht5;
@@ -325,7 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FFE3A7F21942FB100CEA74A /* DSDelegatePVOneChar.swift in Sources */,
+				3F15979021A558D40043AF62 /* TopscoreTableViewController.swift in Sources */,
 				3FFE3A812194329100CEA74A /* Galgje.swift in Sources */,
 				E8F79A4B218F4C18006BE93B /* ViewController.swift in Sources */,
 				E8F79A49218F4C18006BE93B /* AppDelegate.swift in Sources */,
