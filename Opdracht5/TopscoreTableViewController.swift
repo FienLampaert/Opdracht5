@@ -10,15 +10,20 @@ import UIKit
 
 class TopscoreTableViewController: UITableViewController {
 
-    var scores: [String] = ["Fien - 3", "Margot - 1"]
+    var scores: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for (key, value ) in UserDefaults.standard.dictionaryRepresentation() {
-            let line = "\(key) - \(value)"
-            scores.append(line)
+        scores.removeAll()
+        scores = ["Fien - 3", "Margot - 1"]
+        if UserDefaults.standard.dictionary(forKey: "topscoreGalgje")?.isEmpty == false {
+            for (key, value ) in UserDefaults.standard.dictionary(forKey: "topscoreGalgje")! {
+                let line = "\(key) - \(value)"
+                scores.append(line)
+            }
         }
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -41,11 +46,11 @@ class TopscoreTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
         //
-         var x =    scores[indexPath.row]
-cell.textLabel?.text = x
+        let x = scores[indexPath.row]
+        cell.textLabel?.text = x
         return cell
     }
 

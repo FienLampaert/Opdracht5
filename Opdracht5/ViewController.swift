@@ -49,7 +49,7 @@ class ViewController: UIViewController {
             var i = 0
             var gevonden = true
            
-            if (correct == true) {
+            if (correct) {
                 
                     for char in woord.characters{
                         
@@ -70,15 +70,22 @@ class ViewController: UIViewController {
                     }
                 }
                 
-                if (gevonden == true) {
+                if (gevonden) {
                     let alert2 = UIAlertController(title: "Gewonnen", message: "Je hebt het woord gevonden. Geef je naam op.", preferredStyle: .alert)
                     alert2.addAction(UIAlertAction(title: "OK", style: .default, handler: {
                         action in
                         let naam = alert2.textFields?.first?.text
-                        let score = 0
+                        var score: Int = 0
+                        
+                        score = self.galgje.getScore()
                         
                         if(naam?.trimmingCharacters(in: .whitespaces) != "") {
-                            UserDefaults.standard.set(score, forKey: naam! )
+                            
+                            var topscore : [String: Int] = [:]
+                            topscore.updateValue(score, forKey: naam!)
+                            
+                            UserDefaults.standard.set(topscore, forKey: "topscoreGalgje" )
+                            
                         }
                         else {
                             let alert3 = UIAlertController(title: "Geen naam", message: "Jammer, je gaf geen naam op. Je zal niet in de topscore opgenomen worden", preferredStyle: .alert)
@@ -88,7 +95,16 @@ class ViewController: UIViewController {
                     
                         }
                         
+                    
                     }))
+                    
+                    alert2.addTextField(configurationHandler: {
+                        textField in
+                        textField.placeholder = "Geef je naam op."
+    
+                    })
+                    
+                    self.present(alert2, animated: true)
                 }
                 
             }

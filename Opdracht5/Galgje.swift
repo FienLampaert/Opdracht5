@@ -18,7 +18,7 @@ class Galgje {
         self.woord = ""
         self.mawWrongAttemps = 0
         self.woordArray = ["-","-","-","-","-","-"]
-        self.image = -1
+        self.image = 0
     }
     
     func getWoord() -> String{
@@ -83,7 +83,7 @@ class Galgje {
             if woord.contains(letter) {
                 correct = true
                 
-                var range: Range<String.Index> = woord.range(of: letter)!
+                //var range: Range<String.Index> = woord.range(of: letter)!
                
                 var w = woordArray
                 var index = 0
@@ -113,5 +113,9 @@ class Galgje {
             
             return(correct, mawWrongAttemps, woordArray, img)
             
+    }
+    
+    func getScore () -> Int {
+        return image
     }
 }
